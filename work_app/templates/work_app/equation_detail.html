@@ -1,0 +1,42 @@
+{% extends 'work_app/base.html' %}
+{% load static %}
+
+{% block title %}{{name}} | {{block.super}}{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/equation_detail.css' %}" media="screen">
+
+    <section class="u-align-center u-clearfix u-palette-3-light-3 u-section-1" id="sec-491a">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-text u-text-default u-text-1">{{name}}</h1>
+            <p class="u-text u-text-default u-text-2"></p>
+            <div class="u-form u-form-1">
+
+                <form method="post" class="u-clearfix u-form-spacing-10" style="padding: 10px;" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="u-form-group">
+                        <label for="message-be13" class="u-form-control-hidden u-label"></label>
+                        {% if form.numbers.errors %}
+                            <div class="alert alert-danger">{{form.numbers.errors}}</div>
+                        {% endif %}
+                        <textarea placeholder="Введіть числа через пробіл або кожне з нової строки" rows="3" cols="40" id="message-be13" name="numbers" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"></textarea>
+                    </div>
+                    <div class="u-align-left u-form-group u-form-submit">
+                        <button type="submit" class="u-btn u-btn-submit u-button-style" style="background:#b1d3f4; color:black;"><b>разрахувати</b></button>
+                    </div>
+                </form>
+            </div>
+
+            {% if messages %}
+                <h3 class="u-text u-text-default u-text-3">
+                    <span class="u-text-palette-2-dark-2">Відповідь</span>:
+                    <span style="font-weight: 700;">
+                        {% for msg in messages %}{{msg}}{% endfor %}
+                    </span>
+                </h3>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+    
+    

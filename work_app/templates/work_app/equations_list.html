@@ -1,0 +1,28 @@
+{% extends 'work_app/base.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/equations.css' %}" media="screen">
+
+  <section class="u-align-center u-clearfix u-palette-3-light-3 u-section-1" id="sec-491a">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1 class="u-text u-text-default u-text-1">Список рівняннь</h1>
+      <p class="u-text u-text-default u-text-2">Оберіть рівняння, яке вам потрібно вирішити</p>
+      <div class="u-expanded-width u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+
+          {% for equation in equations %}
+            <div class="u-align-center u-container-style u-custom-color-2 u-list-item u-repeater-item u-video-cover u-list-item-4">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+                <h4 class="u-text u-text-default u-text-9">{{equation.name}}</h4>
+                <p class="u-text u-text-10">{{equation.description}}</p>
+                <a href="{% url 'equation_detail' equation.slug %}" class="u-active-palette-1-light-2 u-border-none u-btn u-button-style u-hover-palette-1-base u-palette-1-light-2 u-btn-4">перейти</a>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
