@@ -1,6 +1,7 @@
 # easymath
-Ресурс, який допомогає школярам вирішувати рівняння з математики https://theeasymath.herokuapp.com/
+### Ресурс, який допомогає школярам вирішувати рівняння з математики 
+https://theeasymath.herokuapp.com/
 
-### Стек
+#### Стек
 - python 3.8
 - django 3.2.7
